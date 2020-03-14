@@ -8,5 +8,3 @@ use vendor\Autoload;
 Autoload::register();
 
 Core\System::start();
-
-Http\Router::route();

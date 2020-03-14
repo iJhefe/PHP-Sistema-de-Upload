@@ -25,7 +25,7 @@ class DrawStaticComponent extends DrawConfig implements DrawModel
         return false;
     }
 
-    private function set_path()
+    public function set_path() : void
     {
         $this->path = Core\Path::get_real_path('{base}/' . self::Config['base_path']);
     }

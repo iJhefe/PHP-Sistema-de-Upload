@@ -1,0 +1,4 @@
+body[data-page="index"] {
+    background: url("https://cdn.pixabay.com/photo/2016/11/22/19/24/archive-1850170_960_720.jpg") no-repeat;
+    background-size: cover;
+}

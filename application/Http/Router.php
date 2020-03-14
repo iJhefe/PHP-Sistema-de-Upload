@@ -35,7 +35,7 @@ class Router
 
     }
 
-    private static function generate(string $route) : array
+    protected static function generate(string $route, bool $isStatic = false, string $staticType = '') : array
     {
 
         $dirs = explode('/', $route);
@@ -84,7 +84,7 @@ class Router
 
     }
 
-    private static function sanitize(string $route) : string
+    protected static function sanitize(string $route) : string
     {
         return filter_var($route, FILTER_SANITIZE_STRING);
     }

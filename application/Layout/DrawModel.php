@@ -12,4 +12,6 @@ interface DrawModel
     public function draw(string $name);
 
     public function get_full_dir($name) : string;
+
+    public function set_path() : void;
 }
