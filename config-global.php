@@ -3,7 +3,7 @@
 define('CONFIG_GLOBAL', [
 
     "Url"  => [
-        'base'      => "localhost/SpaceMine",
+        'base'      => "localhost/PHP-Sistema-de-Upload",
         'https'     => false,
     ],
 
