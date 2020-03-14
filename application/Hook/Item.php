@@ -11,13 +11,13 @@ class Item
     {
         if (strtolower($type) === 'css')
             self::css($name);
-        elseif (strtolower($type) === 'js')
+        elseif (strtolower($type) === 'js' || strtolower($type) === 'javascript')
             self::javascript($name);
     }
 
     private static function javascript(string $name)
     {
-        return '';
+        return new JSFile($name);
     }
 
     private static function css(string $name)

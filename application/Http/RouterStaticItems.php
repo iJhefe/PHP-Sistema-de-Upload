@@ -22,8 +22,9 @@ class RouterStaticItems extends Router
 
             $type = $exploded[0];
 
-            ## Retira o tipo do arquivo para evitar duplicação de diretório
-            $name = str_replace($type, '', $route);
+            ## Retira o tipo do arquivo da rota para evitar duplicação de diretório
+            ## Sanitiza o nome para caso tenha .css ou .js
+            $name = str_replace($type, '', self::sanitizeName($route) );
 
             self::generateStatic($name, $type);
         }
@@ -36,5 +37,14 @@ class RouterStaticItems extends Router
             Hook\Item::static($route, $type);
         }
 
+    }
+
+    protected static function sanitizeName(string $name) {
+        if (strpos($name, '.css'))
+            return str_replace('.css', '', $name);
+        elseif (strpos($name, '.js'))
+            return str_replace('.js', '', $name);
+        else
+            return $name;
     }
 }
