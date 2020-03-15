@@ -26,6 +26,10 @@ define('CONFIG_GLOBAL', [
         'page_path' =>  'public'
     ],
 
+    "JWT" => [
+        'valid_time' => '24 hour'
+    ],
+
     ## Don't change that if you don't know what doing
 
     "Cryptography"  => [
