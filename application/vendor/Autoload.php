@@ -4,6 +4,8 @@
 namespace vendor;
 
 
+use Exception;
+
 class Autoload
 {
     static function register()
@@ -14,27 +16,20 @@ class Autoload
 
             $path = CONFIG_GLOBAL['Core']['app_path'];
 
-            $filename = DOCUMENT_ROOT . DS . $path . DS . $class_name . ".php";
+            $filename = DOCUMENT_ROOT . $path . DS . $class_name . ".php";
 
             if (!file_exists($filename)) {
 
                 $filename = str_replace('\\', '/', $filename);
 
                 if (file_exists($filename)) {
-
-                    require $filename;
-
-                    return true;
+                   return require $filename;
                 }
-
             } else {
-
-                require_once $filename;
-
-                return true;
-
+                return require_once $filename;
             }
-            throw new \Exception("[{$class_name}] can't load on ' {$filename} '");
+
+            throw new Exception("[{$class_name}] can't load on ' {$filename} '");
         });
     }
 

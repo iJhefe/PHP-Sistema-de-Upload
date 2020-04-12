@@ -49,7 +49,7 @@ class Delete extends Connection implements DbTemplate
 
         if (empty($this->where))
             if (!$this->noWhere)
-                $this->error = 'DELETE with no Where Clause and noWhere false ';
+                $this->error = 'DELETE without WHERE Clause and noWhere == false ';
 
         $query .= "{$this->table} " . (empty($this->where) ? '' : "WHERE {$this->where}");
 

@@ -93,15 +93,18 @@ class Schema extends Connection
 
     private function exec(string $sql) : bool
     {
-        try
-        {
-            $stmt = $this->conn->exec($sql);
-        }
-        catch (PDOException $e)
-        {
-            $this->error = $e->getMessage();
-
+        if (!is_null($this->error)) {
             return false;
+        }
+        else {
+            try {
+                $stmt = $this->conn->exec($sql);
+            }
+            catch (PDOException $e) {
+                $this->error = $e->getMessage();
+
+                return false;
+            }
         }
 
         return !$stmt ? false : true;
