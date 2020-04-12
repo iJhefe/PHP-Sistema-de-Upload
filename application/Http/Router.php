@@ -5,6 +5,10 @@ namespace Http;
 
 use Hook;
 
+/**
+ * Class Router
+ * @package Http
+ */
 class Router
 {
 
@@ -15,6 +19,9 @@ class Router
         Hook\Page::get($cr['Module'], $cr['Item']);
     }
 
+    /**
+     * @return array
+     */
     public static function current_route() : array
     {
 
@@ -35,7 +42,11 @@ class Router
 
     }
 
-    protected static function generate(string $route, bool $isStatic = false, string $staticType = '') : array
+    /**
+     * @param string $route
+     * @return array
+     */
+    protected static function generate(string $route) : array
     {
 
         $dirs = explode('/', $route);
@@ -84,6 +95,10 @@ class Router
 
     }
 
+    /**
+     * @param string $route
+     * @return string
+     */
     protected static function sanitize(string $route) : string
     {
         return filter_var($route, FILTER_SANITIZE_STRING);

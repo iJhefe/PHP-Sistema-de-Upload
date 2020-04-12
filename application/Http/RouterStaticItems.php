@@ -5,6 +5,10 @@ namespace Http;
 
 use Hook;
 
+/**
+ * Class RouterStaticItems
+ * @package Http
+ */
 class RouterStaticItems extends Router
 {
 
@@ -30,6 +34,10 @@ class RouterStaticItems extends Router
         }
     }
 
+    /**
+     * @param string $route
+     * @param string $type
+     */
     protected static function generateStatic(string $route, string $type = '')
     {
 
@@ -39,6 +47,10 @@ class RouterStaticItems extends Router
 
     }
 
+    /**
+     * @param string $name
+     * @return string|string[]
+     */
     protected static function sanitizeName(string $name) {
         if (strpos($name, '.css'))
             return str_replace('.css', '', $name);

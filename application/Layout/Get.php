@@ -8,6 +8,9 @@ use Http\Router;
 class Get
 {
 
+    /**
+     * @return string
+     */
     public static function current_page() : string
     {
         $currentItem = Router::current_route()['Item'];
