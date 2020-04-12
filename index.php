@@ -15,9 +15,10 @@ require 'init.php';
         <?php Http\Router::route(); ?>
     </main>
     <!-- Footer area -->
-<?php Layout\Draw::component('main/Footer') ?>
+    <footer>
+        <?php Layout\Draw::component('main/Footer') ?>
+    </footer>
 
     <?= Layout\Draw::static_url('main', 'js', true) ?>
-
 </body>
 </html>
